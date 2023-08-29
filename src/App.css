@@ -4,13 +4,12 @@
 
 .app{
   text-align: center;
-  padding: 20px;
+  padding: 1px;
  
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
+.body-container{
+  padding: 20px;
+  text-align: center;
 }
+

@@ -1,3 +1,52 @@
+## Events Page of event management app
+- This is an event page of an event management app.
+- made using react.
+
+## Try on your machine
+1. Clone the repository to your local machine:
+
+   ```bash
+   git clone https://github.com/vaibhav03ambhore/Events-section-of-my-app.git
+   
+2.Navigate to the project directory:
+
+  ```bash
+    cd Events-section-of-my-app
+  ```
+
+3.Install the project dependencies:
+
+- Install all dependencies which are in package.json file.
+  
+  ```
+  npm install dependency-name
+  ```
+   or
+  ```
+  yarn install dependency-name
+  
+  ```
+4.Usage
+- Start the development server:
+  
+  ```
+  npm start
+  ```
+  or
+  ```
+  yarn start
+  ```
+- Open your web browser and go to http://localhost:3000 to access the Event Page App.
+
+- Browse the events and use the dropdown menu to select a category. The page will scroll to the corresponding section automatically.
+
+## Features
+- Display a list of events categorized as "All Events," "Upcoming Events," "Past Events," and "Live Events."
+- Dropdown menu for selecting event categories.
+- Automatic scrolling to the selected category section.
+- Event details including title, date, location, and description.
+
+## For React-app
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

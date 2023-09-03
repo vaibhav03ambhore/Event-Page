@@ -22,25 +22,34 @@ const customStyles = {
   }),
 };
 
+const options = [
+  { value: "all", label: "All Events" },
+  { value: "past", label: "Past Events" },
+  { value: "upcoming", label: "Upcoming Events" },
+  { value: "live", label: "Live Events" }
+];
 
 
-const Dropdown=()=> {
 
-  const options = [
-    { value: 'allEvents', label: 'All Events' },
-    { value: 'upcomingEvents', label: 'Upcoming Events' },
-    { value: 'liveEvents', label: 'Live Events' },
-    { value: 'pastEvents', label: 'Past Events' }, 
-  ];
+const Dropdown=({onChange})=> {
 
-  const [value, setValue] = useState('allEvents'); 
+  const [selectedOption, setSelectedOption] = useState({ value: 'all', label: 'All Events' });
+
+
+  const handleChange = (selectedOption) => {
+    // Call the scrollToSection function with the selected option's value
+    setSelectedOption(selectedOption);
+    onChange(selectedOption);
+  };
 
   return (
     <div className='drop-down'>
       <Select
         options={options}
-        value={options.find(option => option.value === value)}
-        onChange={(selectedOption) => setValue(selectedOption.value)}
+        value={selectedOption}
+        onChange={handleChange}
+        // placeholder="Select an option..."
+      
         styles={customStyles}
       />
     </div>

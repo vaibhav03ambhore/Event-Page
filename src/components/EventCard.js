@@ -8,7 +8,10 @@ const EventCard = ({ event }) => (
     <h3>{event.title}</h3>
     <p>Date: {event.date}</p>
     <p>Location: {event.location}</p>
+    <p>Start Time: {event.startTime}</p>
+    <p>End Time: {event.endTime}</p>
     <p>Description: {event.description}</p>
+    <button>Resister</button>
   </div>
 );
 

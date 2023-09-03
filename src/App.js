@@ -4,7 +4,7 @@ import EventList from './components/EventList';
 import Header from './components/Header';
 
 const eventsData = [
-  // Event data here...
+  
   {
     id: 1,
     title: 'Event 1',
@@ -36,47 +36,20 @@ const eventsData = [
 ];
 
 const App = () => {
-
   const [filteredEvents, setFilteredEvents] = useState(eventsData);
-
-  const handleSearch = searchTerm => {
-    const filtered = eventsData.filter(event =>
-      event.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setFilteredEvents(filtered);
-  };
 
   return (
     <div className="app">
-      
-      <Header/>
+      <Header />
       <div className="body-container">
-
-        <div className="all-events">
-          <h2>All Events</h2>
-          <EventList events={filteredEvents} />
-          <EventList events={filteredEvents} />
-          <EventList events={filteredEvents} />
-        </div>
-
-        <div className="upcoming-events">
-          <h2>Upcoming Events</h2>
-          <EventList events={filteredEvents} />
-        </div>
-
-        <div className="past-events">
-          <h2>Past Events</h2>
-          <EventList events={filteredEvents} />
-        </div>
-
-        <div className="live-events">
-          <h2>Live Events</h2>
-          <EventList events={filteredEvents} />
-        </div>
-        
+        {/* Category components */}
+        {['All Events', 'Upcoming Events', 'Past Events', 'Live Events'].map(category => (
+          <div key={category} className={`${category.toLowerCase().replace(' ', '-')}-events`}>
+            <h2>{category}</h2>
+            <EventList events={filteredEvents} />
+          </div>
+        ))}
       </div>
-
-      
     </div>
   );
 };

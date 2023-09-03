@@ -33,8 +33,8 @@ const eventsData = [
     name: 'Event 3',
     date: '2023-09-03',
     location: 'Venue XYZ',
-    startTime: '12:00 AM',
-    endTime: '01:00 PM',
+    startTime: '4:00 AM',
+    endTime: '05:00 PM',
     description: 'Description for Event 3',
   }
   ,

@@ -11,6 +11,7 @@ const EventCard = ({ event }) => (
     <p>Start Time: {event.startTime}</p>
     <p>End Time: {event.endTime}</p>
     <p>Description: {event.description}</p>
+    <button>Resister</button>
   </div>
 );
 

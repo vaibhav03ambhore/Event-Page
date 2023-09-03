@@ -1,11 +1,12 @@
 .App {
   text-align: center;
+
 }
 
 .app{
   text-align: center;
   padding: 1px;
- 
+  font-size: 15px;
 }
 
 .body-container{

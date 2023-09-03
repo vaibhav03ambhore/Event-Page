@@ -3,7 +3,7 @@ import '../styles/Header.css';
 import SearchBar from './SearchBar';
 import Dropdown from './Dropdown';
 
-const Header = ({ scrollToSection }) => {
+const Header = ({ scrollToSection , searchQuery , onSearchInputChange}) => {
   const handleDropdownChange = selectedOption => {
     // Call the scrollToSection function with the selected option's value
     scrollToSection(selectedOption.value);
@@ -14,7 +14,10 @@ const Header = ({ scrollToSection }) => {
       <div className="header">
         {/* Pass the handleDropdownChange function to the Dropdown component */}
         <Dropdown onChange={handleDropdownChange} />
-        <SearchBar />
+        <SearchBar 
+           searchQuery={searchQuery}
+           onSearchInputChange={onSearchInputChange}
+        />
       </div>
     </div>
   );

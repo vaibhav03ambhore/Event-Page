@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useRef,useState} from 'react';
 import './App.css';
 import Header from './components/Header';
 import AllEvents from './components/AllEvents';
@@ -20,7 +20,7 @@ const eventsData = [
   
   {
     id: 2,
-    name: 'Event 2',
+    name: 'Event 1',
     date: '2023-09-15',
     location: 'Venue XYZ',
     startTime: '08:00 AM',
@@ -61,55 +61,68 @@ const App = () => {
 
   // Function to get the appropriate ref based on the selected option
   // Function to get the appropriate ref based on the selected option
-const scrollToSection = (section) => {
-  let targetRef = null;
-  let headerHeight = 0;
+  const scrollToSection = (section) => {
+    let targetRef = null;
+    let headerHeight = 0;
 
-  // Calculate the header height
-  const header = document.querySelector('.header-container');
-  if (header) {
-    headerHeight = header.getBoundingClientRect().height;
-  }
+    // Calculate the header height
+    const header = document.querySelector('.header-container');
+    if (header) {
+      headerHeight = header.getBoundingClientRect().height;
+    }
 
-  switch (section) {
-    case "all":
-      targetRef = allEventsRef;
-      break;
-    case "past":
-      targetRef = pastEventsRef;
-      break;
-    case "upcoming":
-      targetRef = upcomingEventsRef;
-      break;
-    case "live":
-      targetRef = liveEventsRef;
-      break;
-    default:
-      break;
-  }
+    switch (section) {
+      case "all":
+        targetRef = allEventsRef;
+        break;
+      case "past":
+        targetRef = pastEventsRef;
+        break;
+      case "upcoming":
+        targetRef = upcomingEventsRef;
+        break;
+      case "live":
+        targetRef = liveEventsRef;
+        break;
+      default:
+        break;
+    }
 
-  if (targetRef && targetRef.current) {
-    // Calculate the target scroll position
-    const targetPosition = targetRef.current.offsetTop - headerHeight;
+    if (targetRef && targetRef.current) {
+      // Calculate the target scroll position
+      const targetPosition = targetRef.current.offsetTop - headerHeight;
 
-    // Scroll to the target position
-    window.scrollTo({
-      top: targetPosition,
-      behavior: "smooth",
-    });
-  }
-};
+      // Scroll to the target position
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
 
+  const [searchQuery, setSearchQuery] = useState(''); // Step 1: Add Search State
+
+  // Function to handle search input changes (Step 2)
+  const handleSearchInputChange = (value) => {
+    setSearchQuery(value);
+  };
 
   return (
     <div className="app">
       <Header
         scrollToSection={scrollToSection}
+        // Passing the search query and handler to the Header component
+        searchQuery={searchQuery}
+        onSearchInputChange={handleSearchInputChange}
       />
       <div className="body-container">
           {/* Event sections with refs */}
         <div ref={allEventsRef}>
-          <AllEvents events={eventsData} />
+          <AllEvents 
+            events={eventsData.filter((event) =>
+              event.name.toLowerCase().includes(searchQuery.toLowerCase())
+            )}
+          />
         </div>
         <div ref={pastEventsRef}>
           <PastEvents events={eventsData} />

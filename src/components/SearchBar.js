@@ -1,12 +1,13 @@
 import React from 'react';
 import '../styles/SearchBar.css';
 
-const SearchBar = ({ onChange }) => (
+const SearchBar = ({ searchQuery, onSearchInputChange }) => (
   <div className="search-bar">
     <input
       type="text"
       placeholder="Search events..."
-      onChange={e => onChange(e.target.value)}
+      value={searchQuery} //using searchQuery as value
+      onChange={ (e) => onSearchInputChange(e.target.value)} // Call onSearchInputChange when input changes
     />
     <span className="search-icon">&#128269;</span>
   </div>

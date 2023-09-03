@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/Header.css';
 import SearchBar from './SearchBar';
-import Select from './Dropdown';
+import Dropdown from './Dropdown';
 
 const Header=()=>{
     // const [filteredEvents, setFilteredEvents] = useState(eventsData);
@@ -17,7 +17,7 @@ const Header=()=>{
         <div className="header-container">
 
             <div className="header">
-                <Select />
+                <Dropdown/>
                 <SearchBar />
             </div>
       

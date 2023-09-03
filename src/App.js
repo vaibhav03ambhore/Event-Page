@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState,useRef,useEffect } from 'react';
 import './App.css';
 import EventList from './components/EventList';
 import Header from './components/Header';
+import ScrollToSection from './components/ScrollToSection';
 
 const eventsData = [
   
@@ -36,19 +37,72 @@ const eventsData = [
 ];
 
 const App = () => {
+  const [selectedOption, setSelectedOption] = useState('allEvents');
   const [filteredEvents, setFilteredEvents] = useState(eventsData);
+  const [scrollToSection, setScrollToSection] = useState(false);
+
+  const allEventsRef = useRef(null);
+  const upcomingEventsRef = useRef(null);
+  const pastEventsRef = useRef(null);
+  const liveEventsRef = useRef(null);
+
+  useEffect(() => {
+    if (scrollToSection) {
+      const targetRef = getTargetRef(selectedOption);
+      if (targetRef && targetRef.current) {
+        targetRef.current.scrollIntoView({ behavior: 'smooth' });
+        setScrollToSection(false);
+      }
+    }
+  }, [scrollToSection, selectedOption]);
+
+  const handleDropdownChange = (optionValue) => {
+    setSelectedOption(optionValue);
+    setScrollToSection(true);
+  };
+
+  // Function to get the appropriate ref based on the selected option
+  const getTargetRef = (option) => {
+    switch (option) {
+      case 'allEvents':
+        return allEventsRef;
+      case 'upcomingEvents':
+        return upcomingEventsRef;
+      case 'pastEvents':
+        return pastEventsRef;
+      case 'liveEvents':
+        return liveEventsRef;
+      default:
+        return null;
+    }
+  };
 
   return (
     <div className="app">
-      <Header />
+      <Header
+        onDropdownChange={handleDropdownChange}
+        selectedOption={selectedOption}
+      />
       <div className="body-container">
         {/* Category components */}
-        {['All Events', 'Upcoming Events', 'Past Events', 'Live Events'].map(category => (
-          <div key={category} className={`${category.toLowerCase().replace(' ', '-')}-events`}>
-            <h2>{category}</h2>
-            <EventList events={filteredEvents} />
-          </div>
-        ))}
+        {['All Events', 'Upcoming Events', 'Past Events', 'Live Events'].map(
+          (category) => (
+            <div
+              key={category}
+              className={`${category.toLowerCase().replace(' ', '-')}-events`}
+              ref={(ref) => {
+                // Assign the appropriate ref to each section
+                if (category === 'All Events') allEventsRef.current = ref;
+                else if (category === 'Upcoming Events') upcomingEventsRef.current = ref;
+                else if (category === 'Past Events') pastEventsRef.current = ref;
+                else if (category === 'Live Events') liveEventsRef.current = ref;
+              }}
+            >
+              <h2>{category}</h2>
+              <EventList events={filteredEvents} />
+            </div>
+          )
+        )}
       </div>
     </div>
   );

@@ -1,0 +1,35 @@
+/* components/SearchBar.css */
+/* styles/SearchBar.css */
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+    position: relative;
+    /* background-color: red; */
+    padding: 5px;
+  }
+  
+  .search-bar input {
+    flex: 1;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 14px;
+    font-size: 16px;
+  }
+  
+  .search-icon {
+    position: absolute;
+    right: 10px;
+    font-size: 20px;
+    color: #4a4444;
+    cursor: pointer;
+  }
+  
+  .search-icon:hover {
+    color: #534848;
+  }
+  
+  
+
+ 

@@ -1,5 +1,5 @@
 /* components/EventCard.css */
-
+/* 
 .event-card-container {
   border: 1px solid #ccc;
   padding: 20px;
@@ -16,14 +16,14 @@
   width: 230px;
   position: relative; 
 
-  /* Apply borders to opposite corners */
+  
   border-top-left-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-/* Added a hover effect */
+
 .event-card:hover {
-  transform: scale(1.05); /* Increased size on hover */
+  transform: scale(1.05); 
 }
 
 .event-card img {
@@ -41,20 +41,47 @@
     rgba(0, 0, 0, 0.75),
     rgba(0, 0, 0, 0)
   );
-}
+} */
 
-.register-block {
-  background-color: yellow;
-  width: 100%;
+/* */
+
+.event-card-image {
   text-align: center;
+  position: relative  ;
+  top: 0;
+  
+}
+.event-card{
+  height: auto;
+  position: relative;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
+  margin: 5px 0;
+  background-color: #fff;
+  box-shadow: 0px 0px 15px 0 rgba(0, 0, 0, 0.18);
+}
+.register-block{
+  background:transparent linear-gradient(106deg, #146E28 0%, #64936F 100%) 0% 0% no-repeat padding-box;
+  padding : 12px ;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  border-bottom-left-radius: 20px ;
 }
 
-.register-link a {
-  text-decoration: none;
-  color: #2926d7; /* Change the link text color */
-  font-weight: bold;
+.event-card-image img{
+  transition: transrom 0.5s ;
+  width: 100%;
+  height: 160px;
+  border-top-right-radius: 20px;
 }
+img{
+  vertical-align: middle;
+  border: 0;
+}
+.event-card-content{
+  width: 100%;
 
-.register-link a:hover {
-  color: #555; /* Change the link text color on hover */
+  
 }

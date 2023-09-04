@@ -1,6 +1,6 @@
 /* components/EventCard.css */
 
-.event-card {
+.event-card-container {
   border: 1px solid #ccc;
   padding: 20px;
   background: linear-gradient(
@@ -41,4 +41,20 @@
     rgba(0, 0, 0, 0.75),
     rgba(0, 0, 0, 0)
   );
+}
+
+.register-block {
+  background-color: yellow;
+  width: 100%;
+  text-align: center;
+}
+
+.register-link a {
+  text-decoration: none;
+  color: #2926d7; /* Change the link text color */
+  font-weight: bold;
+}
+
+.register-link a:hover {
+  color: #555; /* Change the link text color on hover */
 }

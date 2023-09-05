@@ -16,13 +16,13 @@ const EventCard = ({ event }) => (
         <p>End Time: {event.endTime}</p>
     
         {/* <p>Description: {event.description}</p> */}
-        {/* <button>Resister</button> */}
-      <div className="register-block">
-        <span class="resister-text">
-          <a href="#">Register Here</a>
-        </span>
-      </div>
     </div>
+    <div className="register-block">
+      <span class="register-text">
+        <a href="#">Register Here</a>
+      </span>
+    </div>
+    
   </div>
 );
 

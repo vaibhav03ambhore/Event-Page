@@ -1,6 +1,7 @@
 /* components/EventCard.css */
 
 .event-card{
+  min-width: 100px;
   height: auto;
   position: relative;
   border-bottom-left-radius: 20px;
@@ -46,4 +47,10 @@
 
 .event-card:hover{
   transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .event-card {
+    margin: 15px 25px;
+  }
 }

@@ -10,6 +10,7 @@ const eventsData = [
   
   {
     id: 1,
+    imageUrl: process.env.PUBLIC_URL + '/images/event-image.jpg',
     name: 'Event 1',
     date: '2023-08-10',
     location: 'Venue XYZ',
@@ -20,6 +21,7 @@ const eventsData = [
   
   {
     id: 2,
+    imageUrl: process.env.PUBLIC_URL + '/images/event-image.jpg',
     name: 'Event 1',
     date: '2023-09-15',
     location: 'Venue XYZ',
@@ -30,6 +32,7 @@ const eventsData = [
   ,
   {
     id: 3,
+    imageUrl: process.env.PUBLIC_URL + '/images/event-image.jpg',
     name: 'Event 3',
     date: '2023-09-03',
     location: 'Venue XYZ',
@@ -40,6 +43,7 @@ const eventsData = [
   ,
   {
     id: 4,
+    imageUrl: process.env.PUBLIC_URL + '/images/event-image.jpg',
     name: 'Event 4',
     date: '2023-09-20',
     location: 'Venue XYZ',

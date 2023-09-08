@@ -5,10 +5,11 @@ const EventCard = ({ event }) => (
   <div className="event-card">
 
     <div className="event-card-image">
-        <img src={process.env.PUBLIC_URL + '/images/event-image.jpg'} alt="Event" />
+        <img src={event.imageUrl} alt="Event" />
     </div>
 
     <div className="event-card-content">
+       
         <h3>{event.name}</h3>
         <p>Date: {event.date}</p>
         <p>Location: {event.location}</p>

@@ -16,7 +16,7 @@
     /* border: 0.1px solid rgb(155, 232, 238); */
     border-bottom: 2px solid rgb(106, 187, 193);
     border-radius: 0 0 14px 14px;
-    background-color: rgb(135, 230, 238); 
+    background:transparent linear-gradient(106deg, #1d219f 0%, #8cd4d7 100%) 0% 0% no-repeat padding-box;
   }
   
   .header h1 {
